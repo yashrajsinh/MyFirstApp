@@ -1,45 +1,29 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
-import { NewAppScreen } from '@react-native/new-app-screen';
-import { StatusBar, StyleSheet, useColorScheme, View } from 'react-native';
-import {
-  SafeAreaProvider,
-  useSafeAreaInsets,
-} from 'react-native-safe-area-context';
-
-function App() {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  return (
-    <SafeAreaProvider>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
-    </SafeAreaProvider>
-  );
-}
-
-function AppContent() {
-  const safeAreaInsets = useSafeAreaInsets();
-
-  return (
-    <View style={styles.container}>
-      <NewAppScreen
-        templateFileName="App.tsx"
-        safeAreaInsets={safeAreaInsets}
-      />
-    </View>
-  );
-}
+import React from 'react';
+import { View, Text, Image, StyleSheet, Button } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+  logo: {
+    width: 200,
+    height: 200,
   },
 });
+
+function App() {
+  return (
+    <SafeAreaView>
+      <View>
+        <Text>Hello World! how are you</Text>
+        <Image
+          style={styles.logo}
+          source={{
+            uri: 'https://hips.hearstapps.com/hmg-prod/images/mh-3-3-rocky-6402438d33545.png',
+          }}
+        />
+        <Button title="Lets Go " />
+      </View>
+    </SafeAreaView>
+  );
+}
 
 export default App;
